@@ -4,6 +4,7 @@ const app = express();
 const { initializeDatabase } = require("./db/db.connect");
 
 const cors = require("cors");
+app.use(express.json());
 
 const corsOptions = {
   origin: "*",
@@ -97,6 +98,35 @@ app.get("/events/:title", async (req, res) => {
     res.status(500).json("Failed to fetch event by title.");
   }
 });
+
+// UPDATE
+
+async function updateEvent(eventId, dataToUpdated) {
+  try {
+    const updatedEvent = await Event.findByIdAndUpdate(eventId, dataToUpdated, {
+      new: true,
+    });
+    return updatedEvent;
+  } catch (error) {
+    console.log("Error in updating event.", error.message);
+  }
+}
+
+app.post("/events/:eventId", async (req, res) => {
+  try {
+    const updatedEvent = await updateEvent(req.params.eventId, req.body);
+    if (updatedEvent) {
+      res
+        .status(200)
+        .json({ message: "Event updated successfully.", updatedEvent });
+    } else {
+      res.status(404).json({ error: "Event not found." });
+    }
+  } catch (error) {
+    res.status(500).json({ error: "Failed to update event" });
+  }
+});
+
 const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
