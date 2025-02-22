@@ -10,6 +10,9 @@ const eventSchema = new mongoose.Schema(
       type: Date,
       required: true,
     },
+    day: {
+      type: String,
+    },
     type: {
       type: String,
       enum: ["Online", "Offline"],
