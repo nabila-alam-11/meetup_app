@@ -33,6 +33,9 @@ const eventSchema = new mongoose.Schema(
         type: String,
       },
     ],
+    hostedBy: {
+      type: String,
+    },
     speakers: [
       {
         name: { type: String, required: true },

@@ -80,8 +80,11 @@ const EventDetails = () => {
                 <p>
                   <FontAwesomeIcon style={{ color: "gray" }} icon={faClock} />{" "}
                   &nbsp;&nbsp;
-                  {eventDetails?.day.slice(0, 3)} {formattedDate} at{" "}
-                  {eventDetails?.sessionTimings[0]}
+                  {eventDetails?.day.slice(0, 3)} {formattedDate} at
+                  {eventDetails?.sessionTimings[0]} to <br /> &nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;
+                  {eventDetails?.day.slice(0, 3)} {formattedDate}&nbsp;
+                  {eventDetails?.sessionTimings[1]}
                 </p>
                 <p>
                   {" "}
@@ -106,44 +109,45 @@ const EventDetails = () => {
                 <h5 style={{ fontWeight: "bold" }}>
                   Speakers:({eventDetails?.speakers.length})
                 </h5>
-                <div className="d-flex g-4">
-                  <div
-                    className="p-2 rounded  align-items-center"
-                    style={{ background: "white", marginLeft: "0.56rem" }}
-                  >
-                    <img
-                      className="rounded-circle object-fit-cover"
-                      src="https://images.pexels.com/photos/30468629/pexels-photo-30468629/free-photo-of-professional-portrait-of-a-blonde-woman-on-neutral-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                      alt={eventDetails?.speakers[0]}
-                      style={{ width: "70px", height: "70px" }}
-                    />
-                    <h6
-                      style={{ lineHeight: "0", fontWeight: "bold" }}
-                      className="mt-3"
+                <div
+                  className="d-flex mt-3  rounded bg-light"
+                  style={{
+                    gap: "1rem",
+                  }}
+                >
+                  {eventDetails?.speakers?.map((speaker) => (
+                    <div
+                      key={speaker._id}
+                      className="p-2 rounded  align-items-center d-flex flex-column text-center"
+                      style={{
+                        background: "white",
+                        marginLeft: "0.56rem",
+                        boxShadow: "2px 2px 8px rgba(0, 0, 0, 0.1) ",
+                        width: "14rem",
+                      }}
                     >
-                      {eventDetails?.speakers[0]}
-                    </h6>
-                    <p>Marketing Manager</p>
-                  </div>
-                  <div
-                    className="p-2 rounded"
-                    style={{ background: "white", marginLeft: "0.56rem" }}
-                  >
-                    <img
-                      className="rounded-circle object-fit-cover"
-                      src="https://images.pexels.com/photos/30468629/pexels-photo-30468629/free-photo-of-professional-portrait-of-a-blonde-woman-on-neutral-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                      alt={eventDetails?.speakers[0]}
-                      style={{ width: "70px", height: "70px" }}
-                    />
-                    <h6
-                      style={{ lineHeight: "0", fontWeight: "bold" }}
-                      className="mt-3"
-                    >
-                      {eventDetails?.speakers[0]}
-                    </h6>
-                    <p>Marketing Manager</p>
-                  </div>
+                      <img
+                        className="rounded-circle object-fit-cover"
+                        src={speaker?.image}
+                        alt=""
+                        style={{ width: "70px", height: "70px" }}
+                      />
+                      <h6
+                        style={{ lineHeight: "0", fontWeight: "bold" }}
+                        className="mt-3"
+                      >
+                        {speaker?.name}
+                      </h6>
+                      <p>{speaker?.occupation.split("at")[0]}</p>
+                    </div>
+                  ))}
                 </div>
+                <button
+                  className="btn btn-danger pe-5 ps-5 my-4 d-flex m-auto"
+                  style={{ letterSpacing: "2px" }}
+                >
+                  RSVP
+                </button>
               </div>
             </div>
           </div>
