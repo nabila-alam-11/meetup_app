@@ -41,7 +41,7 @@ const EventDetails = () => {
               <h2 className="mb-3">{eventDetails?.title}</h2>
               Hosted By:{" "}
               <p style={{ fontSize: "1.2rem", fontWeight: "390" }}>
-                <strong>Marketing Experts</strong>
+                <strong>{eventDetails?.hostedBy}</strong>
               </p>
               <img
                 src={eventDetails?.thumbnail}
