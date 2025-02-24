@@ -5,3 +5,16 @@
   height: 200px;
   object-fit: cover;
 }
+#dancing-script {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400; /* Choose from 400, 500, 600, 700 */
+  font-style: normal;
+}
+.form-select {
+  padding: 0.5rem !important;
+  height: auto !important;
+}
+.background {
+  background-color: rgb(193, 192, 192);
+}
