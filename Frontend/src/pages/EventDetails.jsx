@@ -8,6 +8,7 @@ import {
 import useFetch from "../useFetch";
 import { useParams } from "react-router-dom";
 import Header from "../components/Header";
+import ShimmerEvent from "../components/ShimmerEvent";
 
 const EventDetails = () => {
   const { data, loading } = useFetch(
@@ -36,9 +37,7 @@ const EventDetails = () => {
           letterSpacing: "0.89px",
         }}
       >
-        {loading ? (
-          <p>Loading....</p>
-        ) : (
+        {data ? (
           <div className="d-flex justify-content-between">
             <div style={{ width: "50%" }}>
               <h2 className="mb-3">{eventDetails?.title}</h2>
@@ -156,6 +155,8 @@ const EventDetails = () => {
               </div>
             </div>
           </div>
+        ) : (
+          loading && <ShimmerEvent />
         )}
       </main>
     </>
