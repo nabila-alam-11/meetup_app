@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../src/Styles.css";
 
 import App from "./App.jsx";
-import EventDetails from "./pages/eventDetails.jsx";
+import EventDetails from "./pages/EventDetails.jsx";
 
 const router = createBrowserRouter([
   {
