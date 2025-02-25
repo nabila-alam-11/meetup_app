@@ -18,3 +18,25 @@
 .background {
   background-color: rgb(193, 192, 192);
 }
+#search-input {
+  position: relative;
+  border: none;
+  outline-color: #fff;
+}
+#search-icon {
+  color: lightgray;
+  border: 1px solid white;
+  background: #fff;
+  width: 30px;
+}
+#search-icon::placeholder {
+  color: lightgray !important;
+  outline: none;
+}
+#search-container {
+  background-color: #fff;
+  height: 30px;
+}
+.icon {
+  background-color: #fff;
+}

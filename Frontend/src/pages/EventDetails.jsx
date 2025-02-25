@@ -31,10 +31,13 @@ const EventDetails = () => {
       <Header />
       <main
         className="bg-light py-4"
-        style={{ paddingInline: "9rem", letterSpacing: "0.89px" }}
+        style={{
+          paddingInline: "9rem",
+          letterSpacing: "0.89px",
+        }}
       >
         {loading ? (
-          <p>loading...</p>
+          <p>Loading....</p>
         ) : (
           <div className="d-flex justify-content-between">
             <div style={{ width: "50%" }}>
@@ -47,12 +50,14 @@ const EventDetails = () => {
                 src={eventDetails?.thumbnail}
                 alt={eventDetails?.title}
                 className="img-fluid mt-3 rounded"
-                style={{ width: "25rem" }}
+                style={{ width: "40rem" }}
               />
               <h5 className="my-4" style={{ fontWeight: "bold" }}>
                 Details:{" "}
               </h5>
-              <p>{eventDetails?.description}</p>
+              <p style={{ whiteSpace: "pre-wrap", width: "40rem" }}>
+                {eventDetails?.description}
+              </p>
               <h5 style={{ fontWeight: "bold" }}>Additional Information</h5>
               <p>
                 <strong>Dress Code: </strong>
